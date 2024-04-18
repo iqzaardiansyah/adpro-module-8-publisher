@@ -29,4 +29,6 @@
 
     Overall, this means that both the publisher and subscriber programs are interacting with the same messaging infrastructure, sharing the same message broker for communication. Messages published by the publisher will be sent to the same message broker, and the subscriber program will receive these messages from the same broker. This ensures that the publisher and subscriber are connected to the same messaging system and can exchange messages seamlessly.
 
+![Screenshot of running RabbitMQ](https://i.ibb.co/02p4Y1g/gambar-2024-04-18-172837407.png)
+
 </details>
