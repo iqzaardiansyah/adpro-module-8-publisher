@@ -34,4 +34,22 @@
 
 ![Screenshot of running code on console and running RabbitMQ](https://i.ibb.co/zXy9fjm/gambar-2024-04-18-173639589.png)
 
+![Screenshot of running code on console and running RabbitMQ with spikes](https://i.ibb.co/M9TLtXG/gambar-2024-04-18-173946840.png)
+
+The spike in RabbitMQ management console activity can be directly related to the actions performed by the publisher program. 
+
+When the publisher program runs, it establishes connections to the RabbitMQ server specified in the AMQP URL (`amqp://guest:guest@localhost:5672`). Each call to `p.publish_event` sends a message to RabbitMQ for routing and delivery.
+
+Here's how the publisher's actions can cause a spike in RabbitMQ management console activity:
+
+1. **Connection Establishment**: Each time the publisher program runs, it establishes a new connection to the RabbitMQ server. This creates a spike in connection activity, visible in the RabbitMQ management console.
+
+2. **Message Publishing**: The publisher program sends multiple messages (`UserCreatedEventMessage` instances) to RabbitMQ using the established connection. Each message sent by the publisher program results in activity within RabbitMQ, including message ingestion, routing, and potentially storage depending on RabbitMQ's configuration.
+
+3. **Channel Activity**: In AMQP, communication occurs over channels within a connection. Each call to `p.publish_event` likely involves creating a new channel or using an existing one. This channel activity is visible in the RabbitMQ management console.
+
+4. **Resource Utilization**: Depending on the workload and RabbitMQ's configuration, the spike in message publishing activity may result in increased resource utilization on the RabbitMQ server, such as CPU and memory usage. This can also be monitored through the management console.
+
+In summary, the actions performed by the publisher program, such as establishing connections, sending messages, and utilizing RabbitMQ resources, directly contribute to the spike in activity observed in the RabbitMQ management console.
+
 </details>
