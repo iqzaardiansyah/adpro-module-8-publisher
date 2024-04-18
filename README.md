@@ -31,4 +31,7 @@
 
 ![Screenshot of running RabbitMQ](https://i.ibb.co/02p4Y1g/gambar-2024-04-18-172837407.png)
 
+
+![Screenshot of running code on console and running RabbitMQ](https://i.ibb.co/zXy9fjm/gambar-2024-04-18-173639589.png)
+
 </details>
